@@ -1,0 +1,1563 @@
+/* =========================================================
+   1. GLOBAL RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #14231d;
+  line-height: 1.6;
+}
+
+main,
+section {
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   2. NAVIGATION
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 20px 18%;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #172033;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+
+  color: #0f9f61;
+  background: transparent;
+  border: 3px solid #0f9f61;
+  border-radius: 50%;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.navigation a {
+  color: #8a928f;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a.active {
+  color: #111111;
+}
+
+.navigation .nav-button {
+  margin-left: 10px;
+  padding: 13px 22px;
+
+  color: #ffffff;
+  background: #0f9f61;
+  border-radius: 9px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navigation .nav-button:hover {
+  color: #ffffff;
+  background: #0b8050;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   3. GENERAL SECTIONS
+   ========================================================= */
+
+.section {
+  min-height: 70vh;
+  padding: 100px 8%;
+  background: #ffffff;
+}
+
+.section-light {
+  background: #ffffff;
+}
+
+h2 {
+  margin-bottom: 20px;
+
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+
+/* =========================================================
+   4. HERO SECTION
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  min-height: calc(100vh - 75px);
+  max-width: 1200px;
+  margin: 0 auto;
+
+  background: #ffffff;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin-bottom: 22px;
+
+  font-size: clamp(44px, 7vw, 86px);
+  line-height: 1.02;
+  letter-spacing: -3px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin-bottom: 32px;
+
+  color: #596861;
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   5. PRIMARY BUTTON
+   ========================================================= */
+
+.primary-button {
+  display: inline-block;
+  padding: 15px 22px;
+
+  color: #ffffff;
+  background: #0d9b68;
+  border-radius: 9px;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #087b52;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   6. SAVE MONEY MARKER EFFECT
+   ========================================================= */
+
+.marker-word {
+  position: relative;
+  z-index: 1;
+
+  display: inline-block;
+}
+
+.marker-word::before {
+  content: "";
+
+  position: absolute;
+  top: 12%;
+  left: -4%;
+  z-index: -1;
+
+  width: 108%;
+  height: 78%;
+
+  background: #ffe89a;
+  border-radius: 4px;
+
+  transform: scaleX(0) rotate(-1deg);
+  transform-origin: left center;
+
+  animation: markerSwipe 0.75s ease-out 0.3s forwards;
+}
+
+@keyframes markerSwipe {
+  to {
+    transform: scaleX(1) rotate(-1deg);
+  }
+}
+
+
+/* =========================================================
+   7. HERO BENEFITS
+   ========================================================= */
+
+.hero-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+
+  margin-top: 22px;
+}
+
+.hero-benefits span {
+  color: #6f7774;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   8. SCROLL HINT
+   ========================================================= */
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  color: #8a928f;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+
+  transform: translateX(-50%);
+}
+
+.scroll-arrow {
+  font-size: 22px;
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+
+/* =========================================================
+   9. STATISTICS SECTION
+   ========================================================= */
+
+.stats-section {
+  padding: 95px 8%;
+  background: #ffffff;
+  border-top: 1px solid #f0f2f1;
+  border-bottom: 1px solid #f0f2f1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 65px;
+
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.stat-number {
+  margin-bottom: 18px;
+
+  color: #0f9f61;
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.stat-item p {
+  min-height: 120px;
+  margin-bottom: 18px;
+
+  color: #424a47;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.stat-source {
+  color: #172033;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   10. SANDBOX CHECKS SECTION
+   ========================================================= */
+
+.checks-section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+
+  background: #ffffff;
+}
+
+.checks-container {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+
+/* Überschrift oberhalb der Liste */
+
+.checks-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  margin-bottom: 34px;
+}
+
+.checks-arrow {
+  margin-top: 8px;
+
+  color: #0f9f61;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.checks-label {
+  margin-bottom: 8px;
+
+  color: #0f9f61;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.checks-heading h2 {
+  max-width: 620px;
+  margin: 0;
+
+  font-size: clamp(34px, 4vw, 50px);
+}
+
+
+/* Rahmen und Schatten um die komplette Liste */
+
+.checks-list {
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e0e6e3;
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 55px rgba(20, 35, 29, 0.08),
+    0 4px 12px rgba(20, 35, 29, 0.04);
+}
+
+
+/* Einzelne Zeile */
+
+.check-item {
+  max-width: none;
+  padding: 0;
+
+  border: 0;
+  border-bottom: 1px solid #e8ecea;
+}
+
+.check-item:last-child {
+  border-bottom: 0;
+}
+
+
+/* Klickbare Zeile */
+
+.check-item summary {
+  display: grid;
+  grid-template-columns: 28px 1fr 22px;
+  align-items: center;
+  gap: 18px;
+
+  width: 100%;
+  padding: 24px 26px;
+
+  cursor: pointer;
+  list-style: none;
+
+  transition: background 0.2s ease;
+}
+
+.check-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.check-item summary:hover {
+  background: #f8fbf9;
+}
+
+
+/* Grüner Haken links */
+
+.check-item summary::before {
+  content: "✓";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+
+  color: #0f9f61;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+/* Name des Checks */
+
+.check-name {
+  color: #15231d;
+  font-size: 21px;
+  font-weight: 600;
+
+  transition: color 0.2s ease;
+}
+
+.check-item summary:hover .check-name {
+  color: #0f9f61;
+}
+
+
+/* Dicker Pfeil rechts */
+
+.check-toggle {
+  display: block;
+
+  width: 14px;
+  height: 14px;
+
+  border-top: 3px solid #14231d;
+  border-right: 3px solid #14231d;
+
+  transform: rotate(45deg);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* Pfeil beim Öffnen nach unten drehen */
+
+.check-item[open] .check-toggle {
+  border-color: #0f9f61;
+  transform: rotate(135deg);
+}
+
+
+/* Geöffnete Beschreibung */
+
+.check-item p {
+  max-width: 720px;
+  min-height: auto;
+
+  margin: 0;
+  padding: 0 80px 24px 72px;
+
+  color: #69736f;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* Text unterhalb der Liste */
+
+.checks-more {
+  margin-top: 24px;
+
+  color: #8a928f;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+/* =========================================================
+   11. INTERACTIVE USP SECTION
+   ========================================================= */
+
+.usp-section {
+  padding: 110px 8%;
+  background: #ffffff;
+}
+
+.usp-container {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+}
+
+.usp-heading {
+  max-width: 720px;
+  margin-bottom: 42px;
+}
+
+.usp-label {
+  margin-bottom: 8px;
+
+  color: #0f9f61;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.usp-heading h2 {
+  margin: 0;
+}
+
+.usp-hover-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+
+/* Einzelne USP-Karte */
+
+.usp-hover-card {
+  position: relative;
+
+  min-height: 220px;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e1e7e4;
+  border-radius: 20px;
+
+  box-shadow:
+    0 14px 38px rgba(20, 35, 29, 0.06),
+    0 2px 8px rgba(20, 35, 29, 0.03);
+
+  cursor: pointer;
+  outline: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.usp-hover-card:hover,
+.usp-hover-card:focus {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 22px 50px rgba(20, 35, 29, 0.1),
+    0 4px 12px rgba(20, 35, 29, 0.04);
+}
+
+
+/* Vorderseite */
+
+.usp-card-front {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 220px;
+  padding: 28px;
+
+  transition: transform 0.35s ease;
+}
+
+.usp-number {
+  color: #0f9f61;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.usp-card-front h3 {
+  margin-top: auto;
+  margin-bottom: 10px;
+
+  font-size: 26px;
+}
+
+.usp-reveal {
+  color: #8a928f;
+  font-size: 13px;
+}
+
+
+/* Verdeckter Informationstext */
+
+.usp-card-details {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+
+  padding: 26px 28px;
+
+  background: #14231d;
+
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+}
+
+.usp-card-details p {
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* Hover- und Tastatur-Effekt */
+
+.usp-hover-card:hover .usp-card-details,
+.usp-hover-card:focus .usp-card-details {
+  transform: translateY(0);
+}
+
+.usp-hover-card:hover .usp-card-front,
+.usp-hover-card:focus .usp-card-front {
+  transform: translateY(-28px);
+}
+
+
+/* =========================================================
+   12. OLD FEATURE CARDS
+   ========================================================= */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  margin-top: 40px;
+}
+
+.feature-card {
+  padding: 28px;
+
+  background: #ffffff;
+  border: 1px solid #e0e9e4;
+  border-radius: 16px;
+}
+
+
+/* =========================================================
+   13. FAQ / GENERAL DETAILS
+   ========================================================= */
+
+details {
+  max-width: 800px;
+  padding: 20px 0;
+
+  border-bottom: 1px solid #dce6e0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+details p {
+  margin-top: 12px;
+  color: #596861;
+}
+
+
+/* =========================================================
+   14. TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .navbar {
+    padding: 18px 6%;
+  }
+
+  .navigation {
+    gap: 22px;
+  }
+
+  .navigation a {
+    font-size: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 55px 40px;
+  }
+
+  .stat-item p {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================================
+   15. SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
+
+  .navigation a {
+    font-size: 13px;
+  }
+
+  .section {
+    padding: 80px 24px;
+  }
+
+  .scroll-hint {
+    bottom: 18px;
+  }
+
+  .checks-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .checks-heading {
+    margin-bottom: 26px;
+  }
+
+  .check-item summary {
+    grid-template-columns: 26px 1fr 20px;
+    gap: 12px;
+
+    padding: 21px 18px;
+  }
+
+  .check-name {
+    font-size: 18px;
+  }
+
+  .check-item p {
+    padding: 0 18px 20px 56px;
+  }
+
+  .usp-section {
+    padding: 80px 24px;
+  }
+
+  .usp-hover-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   16. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .navigation a:nth-child(2),
+  .navigation a:nth-child(5) {
+    display: none;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero-benefits {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .stats-section {
+    padding: 70px 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 52px;
+  }
+}
+
+
+/* eintragen in die liste */ 
+
+/* =========================================================
+   PRICING SECTION
+   ========================================================= */
+
+.pricing-section {
+  padding: 110px 8%;
+  background: #ffffff;
+}
+
+.pricing-container {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+}
+
+
+/* Pricing heading */
+
+.pricing-heading {
+  max-width: 680px;
+  margin-bottom: 46px;
+}
+
+.pricing-label {
+  margin-bottom: 8px;
+
+  color: #0f9f61;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pricing-heading h2 {
+  margin-bottom: 16px;
+}
+
+.pricing-heading > p:last-child {
+  color: #69736f;
+  font-size: 17px;
+}
+
+
+/* Two pricing cards */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+
+/* Individual card */
+
+.pricing-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 34px;
+
+  background: #ffffff;
+  border: 1px solid #dfe6e2;
+  border-radius: 22px;
+
+  box-shadow:
+    0 16px 45px rgba(20, 35, 29, 0.06),
+    0 3px 10px rgba(20, 35, 29, 0.03);
+}
+
+
+/* Featured paid card */
+
+.pricing-card-featured {
+  border: 2px solid #0f9f61;
+
+  box-shadow:
+    0 22px 55px rgba(15, 159, 97, 0.12),
+    0 4px 12px rgba(20, 35, 29, 0.04);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+
+  padding: 7px 11px;
+
+  color: #0f9f61;
+  background: #eaf7f1;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* Card label */
+
+.pricing-card-label {
+  margin-bottom: 18px;
+
+  color: #69736f;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* Price */
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+
+  margin-bottom: 20px;
+}
+
+.pricing-currency {
+  color: #14231d;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.pricing-amount {
+  color: #14231d;
+  font-size: 66px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.pricing-payment {
+  margin-left: 7px;
+
+  color: #8a928f;
+  font-size: 14px;
+}
+
+
+/* Description */
+
+.pricing-description {
+  min-height: 76px;
+  margin-bottom: 26px;
+
+  color: #69736f;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* Benefits */
+
+.pricing-benefits {
+  display: grid;
+  gap: 14px;
+
+  margin-bottom: 30px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.pricing-benefits li {
+  position: relative;
+  padding-left: 28px;
+
+  color: #33403a;
+  font-size: 15px;
+}
+
+.pricing-benefits li::before {
+  content: "✓";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: #0f9f61;
+  font-weight: 700;
+}
+
+
+/* Pricing buttons */
+
+.pricing-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 50px;
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pricing-button:hover {
+  transform: translateY(-2px);
+}
+
+.pricing-button-primary {
+  color: #ffffff;
+  background: #0f9f61;
+  border: 1px solid #0f9f61;
+}
+
+.pricing-button-primary:hover {
+  background: #0b8050;
+  border-color: #0b8050;
+}
+
+.pricing-button-secondary {
+  color: #14231d;
+  background: #ffffff;
+  border: 1px solid #cfd8d3;
+}
+
+.pricing-button-secondary:hover {
+  background: #f7faf8;
+  border-color: #0f9f61;
+}
+
+
+/* Free waitlist form */
+
+.waitlist-form {
+  display: grid;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.waitlist-form input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+
+  color: #14231d;
+  background: #ffffff;
+  border: 1px solid #cfd8d3;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.waitlist-form input:focus {
+  border-color: #0f9f61;
+  box-shadow: 0 0 0 4px rgba(15, 159, 97, 0.1);
+}
+
+.waitlist-form input::placeholder {
+  color: #9aa29e;
+}
+
+
+/* Small notes */
+
+.pricing-note {
+  margin-top: 16px;
+
+  color: #8a928f;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.pricing-legal {
+  max-width: 850px;
+  margin: 24px auto 0;
+
+  color: #8a928f;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+
+/* Accessible hidden label */
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+
+/* Responsive pricing */
+
+@media (max-width: 760px) {
+  .pricing-section {
+    padding: 80px 24px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-description {
+    min-height: auto;
+  }
+
+  .pricing-badge {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 18px;
+  }
+}
+
+
+
+/* =========================================================
+   FAQ SECTION
+   ========================================================= */
+
+.faq-section {
+  padding: 110px 8%;
+  background: #ffffff;
+}
+
+.faq-container {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+
+/* FAQ heading */
+
+.faq-heading {
+  max-width: 680px;
+  margin-bottom: 42px;
+}
+
+.faq-label {
+  margin-bottom: 8px;
+
+  color: #0f9f61;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.faq-heading h2 {
+  margin-bottom: 16px;
+}
+
+.faq-heading > p:last-child {
+  color: #69736f;
+  font-size: 17px;
+}
+
+
+/* FAQ list */
+
+.faq-list {
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e0e6e3;
+  border-radius: 22px;
+
+  box-shadow:
+    0 18px 50px rgba(20, 35, 29, 0.07),
+    0 3px 10px rgba(20, 35, 29, 0.03);
+}
+
+
+/* Individual FAQ item */
+
+.faq-item {
+  max-width: none;
+  padding: 0;
+
+  border: 0;
+  border-bottom: 1px solid #e8ecea;
+}
+
+.faq-item:last-child {
+  border-bottom: 0;
+}
+
+
+/* Clickable question */
+
+.faq-item summary {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  align-items: center;
+  gap: 24px;
+
+  width: 100%;
+  padding: 25px 28px;
+
+  color: #15231d;
+  cursor: pointer;
+  list-style: none;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:hover {
+  color: #0f9f61;
+  background: #f8fbf9;
+}
+
+
+/* Plus icon */
+
+.faq-icon {
+  position: relative;
+
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 18px;
+  height: 2px;
+
+  background: #14231d;
+  border-radius: 999px;
+
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+/* Open state */
+
+.faq-item[open] summary {
+  color: #0f9f61;
+  background: #fbfdfc;
+}
+
+.faq-item[open] .faq-icon::before,
+.faq-item[open] .faq-icon::after {
+  background: #0f9f61;
+}
+
+.faq-item[open] .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+
+/* Answer */
+
+.faq-answer {
+  padding: 0 70px 26px 28px;
+}
+
+.faq-answer p {
+  max-width: 760px;
+  margin: 0;
+
+  color: #69736f;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   MOBILE – MUSS GANZ UNTEN STEHEN
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Navigation */
+
+  .navbar {
+    min-height: 64px;
+    padding: 12px 18px !important;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 21px;
+  }
+
+  .brand-logo {
+    width: 27px;
+    height: 27px;
+    font-size: 13px;
+    border-width: 2px;
+  }
+
+  .navigation {
+    gap: 0;
+  }
+
+  .navigation a:not(.nav-button) {
+    display: none !important;
+  }
+
+  .navigation .nav-button {
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  /* Hero kompakter machen */
+
+  .section.hero {
+    width: 100%;
+    max-width: none;
+    min-height: auto !important;
+    margin: 0;
+    padding: 95px 22px 75px !important;
+
+    justify-content: flex-start;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    margin-bottom: 20px;
+
+    font-size: 52px !important;
+    line-height: 0.98;
+    letter-spacing: -3px;
+  }
+
+  .hero p {
+    max-width: 100%;
+    margin-bottom: 26px;
+
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .primary-button {
+    width: 100%;
+    padding: 15px 18px;
+    text-align: center;
+  }
+
+  .hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-top: 20px;
+  }
+
+  .hero-benefits span {
+    font-size: 14px;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  /* Alle weiteren Bereiche */
+
+  .stats-section,
+  .checks-section,
+  .usp-section,
+  .pricing-section,
+  .faq-section {
+    min-height: auto;
+    padding: 72px 22px !important;
+  }
+
+  /* Statistik */
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .stat-number {
+    font-size: 52px;
+  }
+
+  .stat-item p {
+    min-height: auto;
+    font-size: 16px;
+  }
+
+  /* Checks */
+
+  .checks-arrow {
+    display: none;
+  }
+
+  .checks-heading h2,
+  .usp-heading h2,
+  .pricing-heading h2,
+  .faq-heading h2 {
+    font-size: 35px;
+    line-height: 1.08;
+  }
+
+  .checks-list,
+  .faq-list {
+    border-radius: 16px;
+  }
+
+  .check-item summary {
+    grid-template-columns: 24px 1fr 18px;
+    gap: 11px;
+    padding: 19px 16px;
+  }
+
+  .check-name {
+    font-size: 17px;
+  }
+
+  .check-item p {
+    padding: 0 18px 20px 51px;
+  }
+
+  /* USP */
+
+  .usp-hover-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .usp-hover-card,
+  .usp-card-front {
+    min-height: 185px;
+  }
+
+  /* Preise */
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card {
+    padding: 26px 22px;
+  }
+
+  /* FAQ */
+
+  .faq-item summary {
+    padding: 19px 17px;
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    padding: 0 42px 20px 17px;
+  }
+}
+
+
