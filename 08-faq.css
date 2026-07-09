@@ -1,0 +1,187 @@
+/* Pricing buttons */
+
+.pricing-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 50px;
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pricing-button:hover {
+  transform: translateY(-2px);
+}
+
+.pricing-button-primary {
+  color: #ffffff;
+  background: #0f9f61;
+  border: 1px solid #0f9f61;
+}
+
+.pricing-button-primary:hover {
+  background: #0b8050;
+  border-color: #0b8050;
+}
+
+.pricing-button-secondary {
+  color: #14231d;
+  background: #ffffff;
+  border: 1px solid #cfd8d3;
+}
+
+.pricing-button-secondary:hover {
+  background: #f7faf8;
+  border-color: #0f9f61;
+}
+
+
+/* Free waitlist form */
+
+.waitlist-form {
+  display: grid;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.waitlist-form input[type="email"] {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+
+  color: #14231d;
+  background: #ffffff;
+  border: 1px solid #cfd8d3;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.paid-reservation-form {
+  display: grid;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  color: #69736f;
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.consent-row input[type="checkbox"] {
+  flex: 0 0 auto;
+
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+
+  accent-color: #0f9f61;
+  cursor: pointer;
+}
+
+.consent-row span {
+  display: block;
+}
+
+.consent-row a {
+  color: #0f9f61;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.consent-row a:hover {
+  color: #0b8050;
+}
+
+.waitlist-form input[type="email"]:focus {
+  border-color: #0f9f61;
+  box-shadow: 0 0 0 4px rgba(15, 159, 97, 0.1);
+}
+
+.waitlist-form input[type="email"]::placeholder {
+  color: #9aa29e;
+}
+
+
+/* Small notes */
+
+.pricing-note {
+  margin-top: 16px;
+
+  color: #8a928f;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.pricing-legal {
+  max-width: 850px;
+  margin: 24px auto 0;
+
+  color: #8a928f;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+
+/* Accessible hidden label */
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+
+/* Responsive pricing */
+
+@media (max-width: 760px) {
+  .pricing-section {
+    padding: 80px 24px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-description {
+    min-height: auto;
+  }
+
+  .pricing-badge {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 18px;
+  }
+}

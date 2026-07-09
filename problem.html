@@ -1,0 +1,152 @@
+<section id="pricing" class="pricing-section">
+  <div class="pricing-container">
+
+    <div class="pricing-heading">
+      <p class="pricing-label">Early Access</p>
+      <h2>Choose how you want to join.</h2>
+      <p>Secure a Founding Spot now or join the free waitlist.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Paid Founding Spot -->
+      <article class="pricing-card pricing-card-featured">
+        <span class="pricing-badge">Limited to 10 spots</span>
+
+        <p class="pricing-card-label">Founding Spot</p>
+
+        <div class="pricing-price">
+          <span class="pricing-currency">€</span>
+          <span class="pricing-amount">79</span>
+          <span class="pricing-payment">one-time</span>
+        </div>
+
+        <p class="pricing-description">
+          Reserve early access and receive 35% off for the first 24 months.
+        </p>
+
+        <ul class="pricing-benefits">
+          <li>Early access to Sandbox</li>
+          <li>35% discount for 24 months</li>
+          <li>Direct influence on development</li>
+          <li>Priority support</li>
+        </ul>
+
+        <form
+          class="paid-reservation-form"
+          action="DEIN-STRIPE-PAYMENT-LINK"
+          method="get"
+          target="_blank"
+        >
+          <label class="consent-row" for="founding-consent">
+            <input
+              id="founding-consent"
+              name="founding-privacy-consent"
+              type="checkbox"
+              required
+            >
+
+            <span>
+              I have read the
+              <a
+                href="./datenschutz.html"
+                class="privacy-link"
+              >
+                Privacy Policy
+              </a>
+              and agree to the processing of my data for the reservation.
+            </span>
+          </label>
+
+          <button
+            type="submit"
+            class="pricing-button pricing-button-primary"
+          >
+            Reserve for €79
+          </button>
+        </form>
+
+        <p class="pricing-note">
+          *If Sandbox cannot be completed and launched, your €79 payment
+          will be refunded.
+        </p>
+      </article>
+
+
+      <!-- Free Waitlist -->
+      <article class="pricing-card">
+        <p class="pricing-card-label">Free Waitlist</p>
+
+        <div class="pricing-price">
+          <span class="pricing-currency">€</span>
+          <span class="pricing-amount">0</span>
+          <span class="pricing-payment">free</span>
+        </div>
+
+        <p class="pricing-description">
+          Join the waitlist without paying and receive updates about the launch.
+        </p>
+
+        <ul class="pricing-benefits">
+          <li>No payment required</li>
+          <li>Product development updates</li>
+          <li>Launch notification</li>
+          <li>5% launch discount</li>
+        </ul>
+
+        <form class="waitlist-form" action="#" method="post">
+
+          <label class="consent-row" for="waitlist-consent">
+            <input
+              id="waitlist-consent"
+              name="waitlist-privacy-consent"
+              type="checkbox"
+              required
+            >
+
+            <span>
+              I have read the
+              <a
+                href="./datenschutz.html"
+                class="privacy-link"
+              >
+                Privacy Policy
+              </a>
+              and agree to the processing of my email address for the waitlist.
+            </span>
+          </label>
+
+          <label class="visually-hidden" for="waitlist-email">
+            Email address
+          </label>
+
+          <input
+            id="waitlist-email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            required
+          >
+
+          <button
+            type="submit"
+            class="pricing-button pricing-button-secondary"
+          >
+            Join for free
+          </button>
+        </form>
+
+        <p class="pricing-note">
+          No spam. Only important Sandbox updates.
+        </p>
+      </article>
+
+    </div>
+
+    <p class="pricing-legal">
+      *Further details regarding refunds, early access and data processing
+      are provided in the Privacy Policy.
+    </p>
+
+  </div>
+</section>

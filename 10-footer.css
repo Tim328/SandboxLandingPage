@@ -1,0 +1,190 @@
+/* =========================================================
+   MOBILE – MUSS GANZ UNTEN STEHEN
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Navigation */
+
+  .navbar {
+    min-height: 64px;
+    padding: 12px 18px !important;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 21px;
+  }
+
+  .brand-logo {
+    width: 27px;
+    height: 27px;
+    font-size: 13px;
+    border-width: 2px;
+  }
+
+  .navigation {
+    gap: 0;
+  }
+
+  .navigation a:not(.nav-button) {
+    display: none !important;
+  }
+
+  .navigation .nav-button {
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  /* Hero kompakter machen */
+
+  .section.hero {
+    width: 100%;
+    max-width: none;
+    min-height: auto !important;
+    margin: 0;
+    padding: 95px 22px 75px !important;
+
+    justify-content: flex-start;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    margin-bottom: 20px;
+
+    font-size: 52px !important;
+    line-height: 0.98;
+    letter-spacing: -3px;
+  }
+
+  .hero p {
+    max-width: 100%;
+    margin-bottom: 26px;
+
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .primary-button {
+    width: 100%;
+    padding: 15px 18px;
+    text-align: center;
+  }
+
+  .hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-top: 20px;
+  }
+
+  .hero-benefits span {
+    font-size: 14px;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  /* Alle weiteren Bereiche */
+
+  .stats-section,
+  .checks-section,
+  .usp-section,
+  .pricing-section,
+  .faq-section {
+    min-height: auto;
+    padding: 72px 22px !important;
+  }
+
+  /* Statistik */
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .stat-number {
+    font-size: 52px;
+  }
+
+  .stat-item p {
+    min-height: auto;
+    font-size: 16px;
+  }
+
+  /* Checks */
+
+  .checks-arrow {
+    display: none;
+  }
+
+  .checks-heading h2,
+  .usp-heading h2,
+  .pricing-heading h2,
+  .faq-heading h2 {
+    font-size: 35px;
+    line-height: 1.08;
+  }
+
+  .checks-list,
+  .faq-list {
+    border-radius: 16px;
+  }
+
+  .check-item summary {
+    grid-template-columns: 24px 1fr 18px;
+    gap: 11px;
+    padding: 19px 16px;
+  }
+
+  .check-name {
+    font-size: 17px;
+  }
+
+  .check-item p {
+    padding: 0 18px 20px 51px;
+  }
+
+  /* USP */
+
+  .usp-hover-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .usp-hover-card,
+  .usp-card-front {
+    min-height: 185px;
+  }
+
+  /* Preise */
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card {
+    padding: 26px 22px;
+  }
+
+  /* FAQ */
+
+  .faq-item summary {
+    padding: 19px 17px;
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    padding: 0 42px 20px 17px;
+  }
+}
+

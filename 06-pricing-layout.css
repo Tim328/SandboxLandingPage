@@ -1,0 +1,127 @@
+/* =========================================================
+   14. TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .navbar {
+    padding: 18px 6%;
+  }
+
+  .navigation {
+    gap: 22px;
+  }
+
+  .navigation a {
+    font-size: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 55px 40px;
+  }
+
+  .stat-item p {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================================
+   15. SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
+
+  .navigation a {
+    font-size: 13px;
+  }
+
+  .section {
+    padding: 80px 24px;
+  }
+
+  .scroll-hint {
+    bottom: 18px;
+  }
+
+  .checks-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .checks-heading {
+    margin-bottom: 26px;
+  }
+
+  .check-item summary {
+    grid-template-columns: 26px 1fr 20px;
+    gap: 12px;
+
+    padding: 21px 18px;
+  }
+
+  .check-name {
+    font-size: 18px;
+  }
+
+  .check-item p {
+    padding: 0 18px 20px 56px;
+  }
+
+  .usp-section {
+    padding: 80px 24px;
+  }
+
+  .usp-hover-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   16. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .navigation a:nth-child(2),
+  .navigation a:nth-child(5) {
+    display: none;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero-benefits {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .stats-section {
+    padding: 70px 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 52px;
+  }
+}
+
+
+/* eintragen in die liste */ 
+

@@ -1,0 +1,196 @@
+/* =========================================================
+   10. SANDBOX CHECKS SECTION
+   ========================================================= */
+
+.checks-section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+
+  background: #ffffff;
+}
+
+.checks-container {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+
+/* Überschrift oberhalb der Liste */
+
+.checks-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  margin-bottom: 34px;
+}
+
+.checks-arrow {
+  margin-top: 8px;
+
+  color: #0f9f61;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.checks-label {
+  margin-bottom: 8px;
+
+  color: #0f9f61;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.checks-heading h2 {
+  max-width: 620px;
+  margin: 0;
+
+  font-size: clamp(34px, 4vw, 50px);
+}
+
+
+/* Rahmen und Schatten um die komplette Liste */
+
+.checks-list {
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e0e6e3;
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 55px rgba(20, 35, 29, 0.08),
+    0 4px 12px rgba(20, 35, 29, 0.04);
+}
+
+
+/* Einzelne Zeile */
+
+.check-item {
+  max-width: none;
+  padding: 0;
+
+  border: 0;
+  border-bottom: 1px solid #e8ecea;
+}
+
+.check-item:last-child {
+  border-bottom: 0;
+}
+
+
+/* Klickbare Zeile */
+
+.check-item summary {
+  display: grid;
+  grid-template-columns: 28px 1fr 22px;
+  align-items: center;
+  gap: 18px;
+
+  width: 100%;
+  padding: 24px 26px;
+
+  cursor: pointer;
+  list-style: none;
+
+  transition: background 0.2s ease;
+}
+
+.check-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.check-item summary:hover {
+  background: #f8fbf9;
+}
+
+
+/* Grüner Haken links */
+
+.check-item summary::before {
+  content: "✓";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+
+  color: #0f9f61;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+/* Name des Checks */
+
+.check-name {
+  color: #15231d;
+  font-size: 21px;
+  font-weight: 600;
+
+  transition: color 0.2s ease;
+}
+
+.check-item summary:hover .check-name {
+  color: #0f9f61;
+}
+
+
+/* Dicker Pfeil rechts */
+
+.check-toggle {
+  display: block;
+
+  width: 14px;
+  height: 14px;
+
+  border-top: 3px solid #14231d;
+  border-right: 3px solid #14231d;
+
+  transform: rotate(45deg);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* Pfeil beim Öffnen nach unten drehen */
+
+.check-item[open] .check-toggle {
+  border-color: #0f9f61;
+  transform: rotate(135deg);
+}
+
+
+/* Geöffnete Beschreibung */
+
+.check-item p {
+  max-width: 720px;
+  min-height: auto;
+
+  margin: 0;
+  padding: 0 80px 24px 72px;
+
+  color: #69736f;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* Text unterhalb der Liste */
+
+.checks-more {
+  margin-top: 24px;
+
+  color: #8a928f;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+
