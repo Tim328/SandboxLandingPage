@@ -1,86 +1,127 @@
-const sections = document.querySelectorAll("section[id]");
-const navigationLinks = document.querySelectorAll(".navigation a");
+function initializeCounters() {
+  const counters = document.querySelectorAll(".counter");
 
-/* Aktive Navigation */
-
-function updateActiveNavigation() {
-  let currentSection = "";
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 140;
-    const sectionHeight = section.offsetHeight;
-
-    if (
-      window.scrollY >= sectionTop &&
-      window.scrollY < sectionTop + sectionHeight
-    ) {
-      currentSection = section.id;
-    }
-  });
-
-  navigationLinks.forEach((link) => {
-    link.classList.remove("active");
-
-    if (link.getAttribute("href") === `#${currentSection}`) {
-      link.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", updateActiveNavigation);
-window.addEventListener("load", updateActiveNavigation);
-
-
-/* Zahlen hochzählen */
-
-const counters = document.querySelectorAll(".counter");
-const statsSection = document.querySelector(".stats-section");
-
-let animationStarted = false;
-
-function startCounterAnimation() {
-  if (animationStarted) return;
-
-  animationStarted = true;
-
-  counters.forEach((counter) => {
-    const target = Number(counter.dataset.target);
-    const duration = 1400;
-    const startTime = performance.now();
-
-    function animate(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-      counter.textContent = Math.round(target * easedProgress);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        counter.textContent = target;
-      }
-    }
-
-    requestAnimationFrame(animate);
-  });
-}
-
-if (statsSection && counters.length > 0) {
   const observer = new IntersectionObserver(
-    (entries, observerInstance) => {
+    (entries, counterObserver) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          startCounterAnimation();
-          observerInstance.unobserve(entry.target);
+        if (!entry.isIntersecting) {
+          return;
         }
+
+        const counter = entry.target;
+        const target = Number(counter.dataset.target);
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+          const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+          );
+
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+          counter.textContent = Math.round(
+            target * easedProgress
+          );
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        }
+
+        requestAnimationFrame(updateCounter);
+        counterObserver.unobserve(counter);
       });
     },
     {
-      threshold: 0.2
+      threshold: 0.35
     }
   );
 
-  observer.observe(statsSection);
+  counters.forEach((counter) => {
+    observer.observe(counter);
+  });
 }
+
+document.addEventListener(
+  "includesLoaded",
+  initializeCounters
+);
+
+/* Scrollposition vor dem Öffnen der Datenschutzerklärung speichern */
+
+document.addEventListener("click", function (event) {
+  const privacyLink = event.target.closest(".privacy-link");
+
+  if (!privacyLink) {
+    return;
+  }
+
+  sessionStorage.setItem(
+    "sandboxScrollPosition",
+    window.scrollY.toString()
+  );
+});
+
+
+/* Scrollposition nach der Rückkehr wiederherstellen */
+
+function restoreScrollPosition() {
+  const savedPosition = sessionStorage.getItem(
+    "sandboxScrollPosition"
+  );
+
+  if (savedPosition === null) {
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: Number(savedPosition),
+        behavior: "instant"
+      });
+
+      sessionStorage.removeItem("sandboxScrollPosition");
+    });
+  });
+}
+
+document.addEventListener(
+  "includesLoaded",
+  restoreScrollPosition
+);
+
+function initializeCookieNotice() {
+  const notice = document.getElementById("cookie-notice");
+  const button = document.getElementById("cookie-notice-button");
+
+  if (!notice || !button) {
+    return;
+  }
+
+  const noticeWasAccepted = localStorage.getItem(
+    "sandboxCookieNoticeAccepted"
+  );
+
+  if (noticeWasAccepted !== "true") {
+    notice.hidden = false;
+  }
+
+  button.addEventListener("click", function () {
+    localStorage.setItem(
+      "sandboxCookieNoticeAccepted",
+      "true"
+    );
+
+    notice.hidden = true;
+  });
+}
+
+document.addEventListener(
+  "includesLoaded",
+  initializeCookieNotice
+);
